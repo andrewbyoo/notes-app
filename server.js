@@ -5,6 +5,7 @@ const app = express();
 const PORT = process.env.port || 3001;
 
 app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
 
 // When using * instead of /, it would only give me index.html whenever i try to get the /api/notes
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/public/')));
