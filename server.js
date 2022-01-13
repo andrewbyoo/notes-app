@@ -28,12 +28,14 @@ app.post('/api/notes', (req, res) => {
 
     fs.readFile('./db/db.json', (err, data) => {
       if (err) {
-        console.error(err)
-        return
+        console.error(err);
+        return;
       }
       const notesArray = JSON.parse(data);
       notesArray.push(newNote);
-      console.log(notesArray);
+
+      fs.writeFile('./db/db.json', JSON.stringify(notesArray, null, 2), (err) =>
+        err ? console.error(err) : console.log(`The new note, ${title}, has been added to the JSON file.`));
     });
 
   }
