@@ -16,7 +16,6 @@ app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes
 app.get('/api/notes', (req, res) => res.json(db));
 
 app.post('/api/notes', (req, res) => {
-  console.log(req.body)
   const {title, text} = req.body;
 
   if (title && text) {
@@ -38,8 +37,16 @@ app.post('/api/notes', (req, res) => {
         err ? console.error(err) : console.log(`The new note, ${title}, has been added to the JSON file.`));
     });
 
-  }
-})
+    const response = {
+      status: 'success',
+      body: newNote
+    };
+
+    res.status(201).json(response);
+  } else {
+    res.status(500).json('Error in saving note');
+  };
+});
 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/public/')));
 
