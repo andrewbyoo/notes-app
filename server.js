@@ -1,3 +1,4 @@
+const fs = require('fs');
 const express = require('express');
 const db = require('./db/db');
 const path = require('path');
@@ -22,8 +23,19 @@ app.post('/api/notes', (req, res) => {
     const newNote = {
       title,
       text,
-      review_id: uuid()
+      note_id: uuid()
     };
+
+    fs.readFile('./db/db.json', (err, data) => {
+      if (err) {
+        console.error(err)
+        return
+      }
+      const notesArray = JSON.parse(data);
+      notesArray.push(newNote);
+      console.log(notesArray);
+    });
+
   }
 })
 
