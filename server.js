@@ -48,6 +48,15 @@ app.post('/api/notes', (req, res) => {
   };
 });
 
+app.get('/api/notes/:id', (req, res) => {
+  for (let i = 0; i < db.length; i++) {
+    const currentNote = db[i];
+    if (currentNote.id === req.params.id) {
+      return res.status(200).json(currentNote)
+    }
+  }
+});
+
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/public/')));
 
 app.listen(PORT, () => console.log(`Static asset routes at Port: ${PORT}`));
