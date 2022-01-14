@@ -11,6 +11,7 @@ As a small business owner, I want to be able to write and save notes so that I c
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
+- [Link](#link)
 - [License](#license)
 - [Features](#features)
 - [Tests](#tests)
@@ -26,7 +27,10 @@ In your local repo, run the command `npm i`.
 ## Usage
 The visual shows the server being run on a local machine, the functionality of the static web pages, and the output database file.
 
-Please click [here](Youtube link here) for a video demo.
+Please click [here](https://youtu.be/zAkd_t5Yruo) for a video demo.
+
+## Link
+https://andrewbyoo-notes-app.herokuapp.com/
 
 ## License
 This application is covered under the MIT license.
