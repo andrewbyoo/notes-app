@@ -69,7 +69,7 @@ app.delete('/api/notes/:id', (req, res) => {
     notesArray = notesArray.filter(obj => obj.id != req.params.id);
 
     fs.writeFile('./db/db.json', JSON.stringify(notesArray, null, 2), (err) =>
-      err ? console.error(err) : console.log(`The new note, ${title}, has been added to the JSON file.`));
+      err ? console.error(err) : console.log(`The note has been deleted`));
   });
 })
 
