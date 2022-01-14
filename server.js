@@ -64,14 +64,16 @@ app.delete('/api/notes/:id', (req, res) => {
     if (err) {
       console.error(err);
       return;
-    }
+    };
     let notesArray = JSON.parse(data);
     notesArray = notesArray.filter(obj => obj.id != req.params.id);
 
     fs.writeFile('./db/db.json', JSON.stringify(notesArray, null, 2), (err) =>
       err ? console.error(err) : console.log(`The note has been deleted`));
   });
-})
+
+  return res.status(200).json('The note has been deleted');
+});
 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/public/')));
 
