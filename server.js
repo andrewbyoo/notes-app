@@ -58,6 +58,21 @@ app.get('/api/notes/:id', (req, res) => {
   return res.status(500).json(`The id, ${req.params.id}, does not exist.`)
 });
 
+app.delete('/api/notes/:id', (req, res) => {
+
+  fs.readFile('./db/db.json', (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    let notesArray = JSON.parse(data);
+    notesArray = notesArray.filter(obj => obj.id != req.params.id);
+
+    fs.writeFile('./db/db.json', JSON.stringify(notesArray, null, 2), (err) =>
+      err ? console.error(err) : console.log(`The new note, ${title}, has been added to the JSON file.`));
+  });
+})
+
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/public/')));
 
 app.listen(PORT, () => console.log(`Static asset routes at Port: ${PORT}`));
