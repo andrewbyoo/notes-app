@@ -53,6 +53,8 @@ app.get('/api/notes/:id', (req, res) => {
     const currentNote = db[i];
     if (currentNote.id === req.params.id) {
       return res.status(200).json(currentNote)
+    } else {
+      return res.status(500).json(`The id, ${req.params.id}, does not exist.`)
     }
   }
 });
