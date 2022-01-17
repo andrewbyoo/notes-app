@@ -27,6 +27,8 @@ In your local repo, run the command `npm i`.
 ## Usage
 The visual shows the server being run on a local machine, the functionality of the static web pages, and the output database file.
 
+![Notes app static visual](./assets/images/notes-app-screenshot.png)
+
 Please click [here](https://youtu.be/zAkd_t5Yruo) for a video demo.
 
 ## Link
