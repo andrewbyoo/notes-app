@@ -31,9 +31,6 @@ The visual shows the server being run on a local machine, the functionality of t
 
 Please click [here](https://youtu.be/zAkd_t5Yruo) for a video demo.
 
-## Link
-https://andrewbyoo-notes-app.herokuapp.com/
-
 ## License
 This application is covered under the MIT license.
 
